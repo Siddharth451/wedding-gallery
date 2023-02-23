@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filterable responsive lightbox gallery tutorial</title>
+
+    <!-- magnific-popup css cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+
+<div class="gallery">
+
+    <ul class="controls">
+        <li class="buttons active" data-filter="all">all</li>
+        <li class="buttons" data-filter="mehendi">mehendi</li>
+        <li class="buttons" data-filter="sangeet">sangeet</li>
+        <li class="buttons" data-filter="haldi">haldi</li>
+        <li class="buttons" data-filter="reception">reception</li>
+        <li class="buttons" data-filter="puja">puja</li>
+    </ul>
+
+    <div class="image-container">
+
+        <a href="images/VVT_1736.JPG" class="image mehendi">
+            <img src="images/VVT_1736.JPG" alt="">
+        </a>
+        <a href="images/mehendi2.jpg" class="image mehendi">
+            <img src="images/mehendi2.jpg" alt="">
+        </a>
+        <a href="images/mehendi3.jpg" class="image mehendi">
+            <img src="images/mehendi3.jpg" alt="">
+        </a>
+
+        <a href="images/sangeet1.jpg" class="image sangeet">
+            <img src="images/ASH07077.JPG" alt="">
+        </a>
+        <a href="images/sangeet2.jpg" class="image sangeet">
+            <img src="images/sangeet2.jpg" alt="">
+        </a>
+
+        <a href="images/haldi1.jpg" class="image haldi">
+            <img src="images/haldi1.jpg" alt="">
+        </a>
+        <a href="images/haldi2.jpg" class="image haldi">
+            <img src="images/haldi2.jpg" alt="">
+        </a>
+        <a href="images/haldi3.jpg" class="image haldi">
+            <img src="images/haldi3.jpg" alt="">
+        </a>
+        <a href="images/haldi4.jpg" class="image haldi">
+            <img src="images/haldi4.jpg" alt="">
+        </a>
+        <a href="images/haldi5.jpg" class="image haldi">
+            <img src="images/haldi5.jpg" alt="">
+        </a>
+
+        <a href="images/reception1.jpg" class="image reception">
+            <img src="images/reception1.jpg" alt="">
+        </a>
+        <a href="images/reception2.jpg" class="image reception">
+            <img src="images/reception2.jpg" alt="">
+        </a>
+        <a href="images/reception3.jpg" class="image reception">
+            <img src="images/reception3.jpg" alt="">
+        </a>
+
+        <a href="images/puja1.jpg" class="image puja">
+            <img src="images/puja1.jpg" alt="">
+        </a>
+        <a href="images/puja2.jpg" class="image puja">
+            <img src="images/puja2.jpg" alt="">
+        </a>
+        <a href="images/puja3.jpg" class="image puja">
+            <img src="images/puja3.jpg" alt="">
+        </a>
+        <a href="images/puja4.jpg" class="image puja">
+            <img src="images/puja4.jpg" alt="">
+        </a>
+
+    </div>
+
+</div>
+
+  
+<!-- jquery cdn link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- magnific popup js cdn link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+
+    $('.buttons').click(function(){
+
+        $(this).addClass('active').siblings().removeClass('active');
+
+        var filter = $(this).attr('data-filter')
+
+        if(filter == 'all'){
+            $('.image').show(400);
+        }else{
+            $('.image').not('.'+filter).hide(200);
+            $('.image').filter('.'+filter).show(400);
+        }
+
+    });
+
+    $('.gallery').magnificPopup({
+
+        delegate:'a',
+        type:'image',
+        gallery:{
+            enabled:true
+        }
+
+    });
+
+});
+
+</script>
+  
+</body>
+</html>
